@@ -4,7 +4,8 @@ import os
 
 
 # strategies = {'FS': 'Factored SAD', 'LR': 'Logistic regression'}
-strategies = {'LR': 'Logistic regression'}
+# strategies = {'LR': 'Logistic regression'}
+strategies = {'FS': 'Factored SAD'}
 
 for strategy in strategies.keys():
     reward_per_100_steps = []
