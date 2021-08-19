@@ -3,9 +3,10 @@ import matplotlib.pyplot as plt
 import os
 
 
-# strategies = {'FS': 'Factored SAD', 'LR': 'Logistic regression'}
+strategies = {'FS': 'Factored SAD', 'LZ': 'Lempel-Ziv'}
 # strategies = {'LR': 'Logistic regression'}
-strategies = {'FS': 'Factored SAD'}
+# strategies = {'FS': 'Factored SAD'}
+# strategies = {'LZ': 'Lempel-Ziv'}
 
 for strategy in strategies.keys():
     reward_per_100_steps = []
@@ -20,10 +21,10 @@ for strategy in strategies.keys():
     average_score = np.array([seq[:min_len] for seq in average_score]).mean(0)
     strategies[strategy] = (strategies[strategy], reward_per_100_steps, average_score)
 
-max_len = max(len(reward_per_100_steps) for _, reward_per_100_steps, _ in strategies.values())
-t = range(10, 10 * max_len + 1, 10)
+min_len = min(len(reward_per_100_steps) for _, reward_per_100_steps, _ in strategies.values())
+t = range(10, 10 * min_len + 1, 10)
 for strategy_name, reward_per_100_steps, _ in strategies.values():
-    plt.plot(t[:len(reward_per_100_steps)], reward_per_100_steps, label = strategy_name)
+    plt.plot(t, reward_per_100_steps[:min_len], label = strategy_name)
 plt.legend(loc = 'best')
 plt.xlabel('Steps (1000\'s)')
 plt.ylabel('Reward per 100 steps')
@@ -33,15 +34,15 @@ plt.xlim(0, None)
 plt.savefig('./plot/reward_per_100_steps.pdf')
 plt.close()
 
-max_len = max(len(average_score) for _, _, average_score in strategies.values())
-t = range(20, 20 * max_len + 1, 20)
+min_len = min(len(average_score) for _, _, average_score in strategies.values())
+t = range(20, 20 * min_len + 1, 20)
 for strategy_name, _, average_score in strategies.values():
-    plt.plot(t[:len(average_score)], average_score, label = strategy_name)
+    plt.plot(t, average_score[:min_len], label = strategy_name)
 plt.legend(loc = 'best')
 plt.xlabel('Episodes')
 plt.ylabel('Average score')
 plt.xlim(0, None)
-# plt.ylim(-21, None)
+plt.ylim(-21, None)
 # plt.show()
 plt.savefig('./plot/average_score.pdf')
 plt.close()

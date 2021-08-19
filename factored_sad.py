@@ -10,7 +10,7 @@ class Factored_SAD(Strategy):
 
         self.H = self.W = 16
         self.anchor_num = 5
-        self.anchor = self.division(np.random.randint(0, 128, self.s.shape + (self.anchor_num,)))
+        self.anchor = self.division(np.random.randint(0, 2, self.s.shape + (self.anchor_num,)))
         self.s_bucket = nb.typed.List()
         for _ in range(self.H * self.W * len(self.z_range) * len(self.a_range)):
             self.s_bucket.append(nb.typed.Dict.empty(key_type = nb.types.Tuple((nb.types.int64,) * 5), value_type = nb.types.int64))

@@ -56,8 +56,8 @@ class Agent_control():
     def strategy_control(self):
         t0 = time.time()
         if os.path.isfile(self.pickle_file):
-            with open(self.pickle_file, 'rb') as input:
-                s = pickle.load(input)
+            with open(self.pickle_file, 'rb') as ipt:
+                s = pickle.load(ipt)
                 s.load()
             self.env.reset()
             s.R_in_last_20_episodes[-1] = 0
