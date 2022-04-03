@@ -90,6 +90,7 @@ class Lempel_Ziv(Strategy):
         obs_revised = obs_revised.reshape(H, W, -1)
         obs_revised = (obs_revised * self.bi_cvt).sum(-1)
 
+
         return obs_revised
 
 

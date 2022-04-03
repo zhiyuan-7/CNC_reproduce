@@ -9,7 +9,7 @@ class Factored_SAD(Strategy):
         Strategy.__init__(self, init_obs)
 
         self.H = self.W = 16
-        self.anchor_num = 5
+        self.anchor_num = 22
         self.anchor = self.division(np.random.randint(0, 2, self.s.shape + (self.anchor_num,)))
         self.s_bucket = nb.typed.List()
         for _ in range(self.H * self.W * len(self.z_range) * len(self.a_range)):
