@@ -1,0 +1,7 @@
+# A Logic-based Extension of CNC in Partially Observable, Complex but Structured Environments
+ 
+## Author
+Zhiyuan Wu (zhiyuan.wu@anu.edu.au)
+
+## Abstract
+This paper studies a logic-based extension of the Compress and Control (CNC) Reinforcement Learning (RL) algorithm that could satisfy the intelligibility requirement of modern RL, and scale to partially observable, complex but structured environments where concepts like objects and their relationships, environment dynamics, and goals can be represented in an expressive computational logic. Specifically, a factored particle filter, which is able to exploit the spatial locality in the environment structure to process the high-dimensional raw input in a factorized way, is adopted to gain beliefs over the environment state. After that, a logic unit extracts a symbolic representation from the beliefs by incorporating human-injected domain knowledge. As such, the agent could handle a fair amount of information at ease and low-level useless details are discarded from intricate environmental information. In addition, the succinct architecture of the agent enables the system designer/user to probe into its internal to interpret its decision-making process. The empirical study of the proposed agent on a large-scale epidemic control problem shows its effectiveness, flexibility, stability and transparency.

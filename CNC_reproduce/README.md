@@ -1,4 +1,4 @@
-# CNC_reproduce
+# Reproduce of CNC
  
 ## Author
 Zhiyuan Wu
